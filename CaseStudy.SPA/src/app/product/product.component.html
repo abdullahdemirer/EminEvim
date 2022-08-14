@@ -1,0 +1,33 @@
+<div *ngIf="dataGoster==true">
+  <div *ngIf="products.length>0; else:noProdcut">
+    <h3>{{title}}</h3>
+    <table class="table" style="padding: 0px 20px;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ürün İsmi</th>
+          <th>Kategori Ismi</th>
+          <th>Fiyatı</th>
+          <th>Stok Adeti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products">
+          <th>{{ item.id }}</th>
+          <td>{{ item.productName }}</td>
+          <td>{{ item.categoryName }}</td>
+          <td>{{ item.unitPrice |number:'1.2-2'}}  ₺</td>
+          <td>{{ item.unitInStock }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  
+  <ng-template #noProdcut>
+    <div class="alert alert-danger" role="alert">
+      Ürün kaydı bulunmamaktadır
+    </div>
+  </ng-template>
+</div>
+

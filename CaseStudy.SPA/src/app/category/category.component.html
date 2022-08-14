@@ -1,0 +1,15 @@
+<h3>{{title}}</h3>
+
+<div class="list-group">
+  <a class="list-group-item" id="categoryButton1" (click)="changeButtonCss($event)" routerLink='products'>
+    Tüm Ürünler
+  </a>
+  <a class="list-group-item" id="categoryButton2" (click)="changeButtonCss($event)" routerLink='products/add'>
+    Yeni ÜrünEkle
+  </a>
+</div>
+
+<div class="list-group" *ngFor="let item of categories; let i =index">
+  <a id="categoryButton{{i+3}}" class="list-group-item" (click)="changeButtonCss($event)"
+    routerLink='products/category/{{item.categoryUrl}}'>{{item.categoryName}}</a>
+</div>
